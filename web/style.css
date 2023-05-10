@@ -1,0 +1,143 @@
+/* body {
+    font-family: 'Sriracha';
+    background-color: rgba(155, 201, 176);
+} */
+
+body {
+    font-family: "Sriracha";
+	background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 300% 300%;
+	animation: gradient 10s ease infinite;
+	height: 100%;
+    overflow-x: hidden;
+}
+
+@keyframes gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+input {
+    font-family: 'Source Code Pro';
+ }
+
+img {
+  display: flex;
+}
+
+nav {
+    opacity: 0.7;
+}
+
+.navbar-brand {
+  color: black;
+  line-height: 10px;
+  margin-top: 10px;
+}
+
+#logo, h1 {
+  font-family: "Sriracha";
+  color: black;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.uiSub {
+    color: green;
+}
+
+#checks {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#signInBox {
+    border-color: white;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-family: 'Roboto Slab';
+    margin: auto;
+    margin-top: 30px;
+    width: 75%;
+    padding: 10px;
+}
+
+#signInForm, #createAccountForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#signInForm > *, #createAccountForm > * {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #e73c7e; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #e73c7e;
+    opacity: 0.8;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2338d5; 
+  }
+
+h3, #newPostButton {
+  margin-left: 10px;
+}
+
+.btn {
+  background-color: green;
+  border-color: cornsilk;
+}
+.btn:hover {
+  background-color: darkgreen;
+  border-color: #e73c7e;
+  border-radius: 10px;
+  transition: border-radius 0.5s;
+}
+.modal-title {
+  padding: 10px;
+  font-family: "Sriracha";
+}
+.modal-content {
+  background-color: #1cc0ed;
+  border-color: #e73c7e;
+  padding: 10px;
+  font-family: "Source Code Pro";
+}
+
+
+
+/*
+#usernameInput {
+    width: 100%;
+    display: flex;
+}
+
+#usernameInput > input {
+    float: right;
+}
+
+#usernameInput > span {
+    width: 2rem;
+    float: left;
+    background-color: white;
+    border-top-left-radius: 5px;
+} */
+

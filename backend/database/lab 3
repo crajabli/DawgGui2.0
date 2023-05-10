@@ -1,0 +1,151 @@
+DROP DATABASE dawg_gui;
+
+CREATE DATABASE dawg_gui;
+USE dawg_gui;
+
+CREATE TABLE users (
+    user_id int NOT NULL,
+    user_fname varchar(255) NOT NULL,
+    user_lname varchar(255),
+    PRIMARY KEY(user_id)
+);
+
+CREATE TABLE channel (
+    channel_id int NOT NULL AUTO_INCREMENT,
+    channel_name varchar(255) NOT NULL,
+    PRIMARY KEY (channel_id)
+);
+
+CREATE TABLE admins (
+    user_id int NOT NULL AUTO_INCREMENT,
+    channel_id int NOT NULL,
+    PRIMARY KEY (user_id, channel_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (channel_id) REFERENCES channel(channel_id)
+);
+
+CREATE TABLE image (
+    image_id int NOT NULL AUTO_INCREMENT,
+    src varchar(255) NOT NULL,
+    PRIMARY KEY (image_id)
+);
+
+CREATE TABLE post (
+    post_id int NOT NULL AUTO_INCREMENT,
+    user_id int NOT NULL,
+    image_id int NOT NULL,
+    channel_id int NOT NULL,
+    caption varchar(255),
+    PRIMARY KEY (post_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (image_id) REFERENCES image(image_id),
+    FOREIGN KEY (channel_id) REFERENCES channel(channel_id)
+);
+
+CREATE TABLE status (
+    post_id int NOT NULL,
+    user_id int NOT NULL,
+    reaction int,
+    comment varchar(255),
+    PRIMARY KEY (post_id, user_id),
+    FOREIGN KEY (post_id) REFERENCES post(post_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE subscribe (
+    user_id int NOT NULL,
+    channel_id int NOT NULL,
+    PRIMARY KEY (user_id, channel_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (channel_id) REFERENCES channel(channel_id)
+);
+
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (101, "Max", "Cox");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (102, "Charlie", "Setzer");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (103, "Lily", "Rajabli");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (104, "Zoe", "Buryniuk");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (105, "Buddy", "Buryniuk");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (106, "Bella", "Buryniuk");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (107, "Luna", "Setzer");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (108, "Lucy", NULL);
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (109, "Cooper", "Rajabli");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (110, "Rocky", "Cox");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (111, "Fork", "Setzer");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (112, "Cat", "Setzer");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (113, "Fergus", "Furman");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (114, "Winston", NULL);
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (115, "Teddy", "Freddy");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (116, "Finn", "TheHuman");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (117, "Moose", NULL);
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (118, "Goose", NULL);
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (119, "Pablo", "Woblo");
+INSERT INTO users (user_id, user_fname, user_lname) VALUES (120, "Süsser", NULL);
+
+INSERT INTO channel (channel_id, channel_name) VALUES (601, "FunnyDogs");
+INSERT INTO channel (channel_id, channel_name) VALUES (602, "CatsRCool");
+INSERT INTO channel (channel_id, channel_name) VALUES (603, "DogToys");
+INSERT INTO channel (channel_id, channel_name) VALUES (604, "PetAdvice");
+INSERT INTO channel (channel_id, channel_name) VALUES (605, "DogNutrition");
+INSERT INTO channel (channel_id, channel_name) VALUES (606, "CatsInWeirdPlaces");
+INSERT INTO channel (channel_id, channel_name) VALUES (607, "Memes");
+INSERT INTO channel (channel_id, channel_name) VALUES (608, "DogNews");
+INSERT INTO channel (channel_id, channel_name) VALUES (609, "DogsOnWalks");
+INSERT INTO channel (channel_id, channel_name) VALUES (610, "Awwww");
+INSERT INTO channel (channel_id, channel_name) VALUES (611, "UWU_Gerbil"); 
+
+INSERT INTO admins (user_id, channel_id) VALUES (111, 601);
+INSERT INTO admins (user_id, channel_id) VALUES (112, 602);
+INSERT INTO admins (user_id, channel_id) VALUES (113, 603);
+INSERT INTO admins (user_id, channel_id) VALUES (114, 604);
+INSERT INTO admins (user_id, channel_id) VALUES (115, 605);
+INSERT INTO admins (user_id, channel_id) VALUES (116, 606);
+INSERT INTO admins (user_id, channel_id) VALUES (117, 607);
+INSERT INTO admins (user_id, channel_id) VALUES (118, 608);
+INSERT INTO admins (user_id, channel_id) VALUES (119, 609);
+INSERT INTO admins (user_id, channel_id) VALUES (120, 610);
+
+INSERT INTO image (image_id, src) VALUES (801, "/images/shibe.png"); 
+INSERT INTO image (image_id, src) VALUES (802, "/images/cat_tree.png"); 
+INSERT INTO image (image_id, src) VALUES (803, "/images/doggy.png"); 
+INSERT INTO image (image_id, src) VALUES (804, "/images/1.png"); 
+INSERT INTO image (image_id, src) VALUES (805, "/images/2.png"); 
+INSERT INTO image (image_id, src) VALUES (806, "/images/3.png"); 
+INSERT INTO image (image_id, src) VALUES (807, "/images/4.png"); 
+INSERT INTO image (image_id, src) VALUES (808, "/images/5.png"); 
+INSERT INTO image (image_id, src) VALUES (809, "/images/6.png"); 
+INSERT INTO image (image_id, src) VALUES (810, "/images/7.png"); 
+
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (501, 101, 801, 601, "funny doge");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (502, 102, 802, 602, "He's stuck in the tree");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (503, 105, 803, 605, NULL);
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (504, 103, 804, 603, "This is the best dog toy ever!");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (505, 104, 805, 604, "Laser pointer + duck tape = awesome!");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (506, 107, 806, 607, "lmao");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (507, 106, 807, 606, "How did he even get up there?");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (508, 108, 808, 608, "BREAKING NEWS!");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (509, 110, 809, 610, "Cutest picture ever!");
+INSERT INTO post (post_id, user_id, image_id, channel_id, caption) VALUES (510, 109, 810, 609, "Check out this dog park.");
+
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (501, 102, 10, "Wow, such comment, very like!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (502, 101, 34, "Hang in there!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (503, 105, 57, "Cool picture!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (504, 103, 14, "dJazzarific!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (505, 104, 55, "Wow great advice!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (506, 105, 69, "hahaha");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (507, 105, 102, "Bro what the heck!!!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (508, 106, 1054, "I hate politics");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (509, 110, 1, "OMG so cute!");
+INSERT INTO status (post_id, user_id, reaction, comment) VALUES (510, 109, 4, "Where can I find this park?");
+
+INSERT INTO subscribe (user_id, channel_id) VALUES (101, 601);
+INSERT INTO subscribe (user_id, channel_id) VALUES (102, 602);
+INSERT INTO subscribe (user_id, channel_id) VALUES (103, 603);
+INSERT INTO subscribe (user_id, channel_id) VALUES (104, 604);
+INSERT INTO subscribe (user_id, channel_id) VALUES (105, 605);
+INSERT INTO subscribe (user_id, channel_id) VALUES (106, 606);
+INSERT INTO subscribe (user_id, channel_id) VALUES (107, 607);
+INSERT INTO subscribe (user_id, channel_id) VALUES (101, 608);
+INSERT INTO subscribe (user_id, channel_id) VALUES (103, 609);
+INSERT INTO subscribe (user_id, channel_id) VALUES (103, 610);
+
+

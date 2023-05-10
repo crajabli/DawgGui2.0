@@ -1,0 +1,20 @@
+[Description]
+Our project is a social media app that allows users to make an account and upload photos of dogs. Non-account holders are also able to access the website through guest access, however, in this mode, only limited access is available. The backend for this website is run off of SQL and PHP.
+
+[Instructions]
+Download the following files onto a server, we recommend Ubuntu or another Debian-based distro. Make sure mySQL is running on your server already and run `mysql --user=user_name --password db_name` on the command line. This will generate the tables necessary for the database to run properly.
+
+[Example]
+for instance, our database name is 'dawg-gui' so logging in with our root user, we would run the 'command mysql --user=root --password=12345' hopefully your password is not 12345
+
+[Citations]
+Twitter Bootstrap (2023) version 5.3.0-alpha [library] Retrieved from http://getbootstrap.com/.
+Cadson Demak (2023) Sriracha [font] https://fonts.google.com/specimen/Sriracha
+Christian Robertson (2023) Roboto Slab [font] https://fonts.google.com/specimen/Roboto+Slab
+Paul D. Hunt (2023) Source Code Pro [font] https://fonts.google.com/specimen/Source+Code+Pro
+
+[Authors]
+Ryan Setzer - ryanjsetzer@gmail.com
+Nicholas Buryniuk - buryninz@dukes.jmu.edu
+Chingiz Rajabli - rajablcx@dukes.jmu.edu/ crajabli@gmail.com
+Mason Cox

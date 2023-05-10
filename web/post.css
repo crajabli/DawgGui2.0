@@ -1,0 +1,78 @@
+span {
+    font-family: 'Sriracha';
+}
+
+h1 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+    font-family: 'Architects Daughter';
+    color: white;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+h4 {
+    font-size: 40px;
+}
+
+button {
+    background: none;
+    border: solid;
+    border-radius: 5px;
+}
+
+img {
+    width: 100%;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: black;
+}
+
+.post {
+    border-color: black;
+    border-radius: 15px;
+    border-style: solid;
+    background-color: rgba(0, 0, 0 , 0.3);
+    font-family: 'Roboto Slab';
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 95%;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  overflow-x: hidden;
+  height: 80vh;
+  width: 80vw;
+}
+
+.poster ,.channel, .date{
+    color: white;
+    font-family: "Source Code Pro";
+}
+
+.poster, .channel {
+    font-weight: bold;
+}
+
+.up {
+    color: green;
+}
+
+.down {
+    color: red;
+}
+
+.reactions {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+}
